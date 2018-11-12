@@ -24,7 +24,7 @@ TEST_CASE("CsvArgs puts command-line args into member variables")
     int argc = 5;
     CsvArgs args(argc, argv);
 
-    REQUIRE(args.getColToOverwrite() != std::string(colToOverwrite));
+    REQUIRE(args.getColToOverwrite() == std::string(colToOverwrite));
     REQUIRE(args.getColReplaceVal() == std::string(colReplaceVal));
 }
 
