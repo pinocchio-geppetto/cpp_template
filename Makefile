@@ -26,9 +26,15 @@ CXXFLAGS += -Wall -std=c++11
 
 .PHONY: all test clean
 
-all: $(SRC_EXE)
+all: $(OBJ_DIR) $(SRC_EXE)
 
-test: $(TEST_EXE)
+test: $(TEST_OBJ_DIR) $(TEST_EXE)
+
+$(OBJ_DIR):
+	mkdir $(OBJ_DIR)
+
+$(TEST_OBJ_DIR):
+	mkdir $(TEST_OBJ_DIR)
 
 $(SRC_EXE): $(SRC_OBJ)
 	$(CXX) $^ -o $@
